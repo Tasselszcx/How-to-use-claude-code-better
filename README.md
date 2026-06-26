@@ -1,5 +1,7 @@
 # 🤖 How to Use Claude Code Better
 
+> 作者小红书：[https://www.xiaohongshu.com/user/profile/66eaf504000000001d030537](https://www.xiaohongshu.com/user/profile/66eaf504000000001d030537)
+
 > 一份面向中文开发者的 Claude Code 实战系列，从终端配置到多 Agent 并行，覆盖入门到进阶的完整路径。
 
 ---
