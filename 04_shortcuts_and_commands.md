@@ -1,4 +1,4 @@
-# 04 · 主要快捷键、命令与使用方法
+# 04 · Claude Code 速查手册 — 快捷键、命令与高效技巧
 
 > **系列索引**：[README](./README.md) · [01 终端配置](./01_terminal_setup.md) · [02 安装 CC](./02_installation.md) · [03 唤起与使用](./03_launch_and_use.md) · **本篇** · [05 目录结构](./05_directory_structure.md)
 
@@ -7,8 +7,6 @@
 ## 前言
 
 本文是 Claude Code 的**速查手册**，涵盖：交互快捷键、权限模式、斜杠命令、CLI flags、管道模式、Skills 安装使用，以及实用技巧。建议收藏备查。
-
-> 内网通过 `mc --code` 启动，本文所有 `claude` 命令均对应内网的 `mc --code` 入口，flags 写法完全一致。
 
 ---
 
@@ -110,16 +108,14 @@
 
 ## 四、CLI 启动命令
 
-内网用 `mc --code [flags]` 代替 `claude [flags]`，flags 完全一致：
-
 | 命令 | 说明 | 示例 |
 |------|------|------|
-| `mc --code` | 启动交互会话 | `mc --code` |
-| `mc --code "问题"` | 携带初始提示启动 | `mc --code "解释这个项目"` |
-| `mc --code -p "问题"` | 非交互模式，输出后退出 | `mc --code -p "这个函数做什么"` |
-| `mc --code -c` | 继续当前目录最近的会话 | `mc --code -c` |
-| `mc --code -r "会话名"` | 恢复指定名称/ID 的会话 | `mc --code -r "auth-refactor"` |
-| `mc --code -n "名称"` | 为本次会话命名 | `mc --code -n "feature-login"` |
+| `claude` | 启动交互会话 | `claude` |
+| `claude "问题"` | 携带初始提示启动 | `claude "解释这个项目"` |
+| `claude -p "问题"` | 非交互模式，输出后退出 | `claude -p "这个函数做什么"` |
+| `claude -c` | 继续当前目录最近的会话 | `claude -c` |
+| `claude -r "会话名"` | 恢复指定名称/ID 的会话 | `claude -r "auth-refactor"` |
+| `claude -n "名称"` | 为本次会话命名 | `claude -n "feature-login"` |
 
 ---
 
@@ -127,15 +123,15 @@
 
 | Flag | 说明 | 示例 |
 |------|------|------|
-| `--dangerously-skip-permissions` | 跳过所有权限确认（即 alias `cc`） | `mc --code --dangerously-skip-permissions` |
-| `--permission-mode plan` | 以 plan 模式启动（只规划不执行） | `mc --code --permission-mode plan` |
-| `--model <model-id>` | 指定模型 | `mc --code --model claude-sonnet-4-6` |
-| `--effort <level>` | 设置思考力度（low / medium / high / xhigh / max） | `mc --code --effort high` |
-| `--add-dir <路径>` | 额外授权访问的目录 | `mc --code --add-dir ../shared` |
-| `--append-system-prompt "..."` | 追加自定义系统提示 | `mc --code --append-system-prompt "始终用中文回复"` |
-| `-v` | 查看版本号 | `mc --code -v` |
-| `--verbose` | 详细日志模式（调试用） | `mc --code --verbose` |
-| `--worktree <名称>` | 在独立 git worktree 中启动 | `mc --code -w feature-auth` |
+| `--dangerously-skip-permissions` | 跳过所有权限确认（即 alias `cc`） | `claude --dangerously-skip-permissions` |
+| `--permission-mode plan` | 以 plan 模式启动（只规划不执行） | `claude --permission-mode plan` |
+| `--model <model-id>` | 指定模型 | `claude --model claude-opus-4-8` |
+| `--effort <level>` | 设置思考力度（low / medium / high / xhigh / max） | `claude --effort high` |
+| `--add-dir <路径>` | 额外授权访问的目录 | `claude --add-dir ../shared` |
+| `--append-system-prompt "..."` | 追加自定义系统提示 | `claude --append-system-prompt "始终用中文回复"` |
+| `-v` | 查看版本号 | `claude -v` |
+| `--verbose` | 详细日志模式（调试用） | `claude --verbose` |
+| `--worktree <名称>` | 在独立 git worktree 中启动 | `claude -w feature-auth` |
 
 ---
 
@@ -145,21 +141,21 @@
 
 ```bash
 # 分析错误日志
-cat error.log | mc --code -p "分析报错原因并给出修复建议"
+cat error.log | claude -p "分析报错原因并给出修复建议"
 
 # 生成 git commit message
-git diff --staged | mc --code -p "为这些改动生成一个规范的 commit message"
+git diff --staged | claude -p "为这些改动生成一个规范的 commit message"
 
 # 代码安全审查
-cat src/auth.js | mc --code -p "审查这段代码的安全性，重点关注注入和越权问题"
+cat src/auth.js | claude -p "审查这段代码的安全性，重点关注注入和越权问题"
 
 # 输出 JSON 格式（适合脚本解析）
-mc --code -p "列出项目的主要依赖及其用途" --output-format json
+claude -p "列出项目的主要依赖及其用途" --output-format json
 
 # 批量处理文件
 for f in src/**/*.ts; do
   echo "=== $f ===" >> review.md
-  cat "$f" | mc --code -p "简要说明这个文件的职责" >> review.md
+  cat "$f" | claude -p "简要说明这个文件的职责" >> review.md
 done
 ```
 
@@ -228,13 +224,13 @@ EOF
 
 ```bash
 # 为本次会话命名（启动时）
-mc --code -n "feature-payment"
+claude -n "feature-payment"
 
 # 恢复指定名称/ID 的会话
-mc --code -r "feature-payment"
+claude -r "feature-payment"
 
 # 继续当前目录最近的会话
-mc --code -c
+claude -c
 
 # 在会话中途重命名
 /rename new-name

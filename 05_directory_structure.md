@@ -1,4 +1,4 @@
-# 05 · CC 的主要目录结构
+# 05 · Claude Code 的文件地图 — 彻底搞清楚数据存哪里
 
 > **系列索引**：[README](./README.md) · [01 终端配置](./01_terminal_setup.md) · [02 安装 CC](./02_installation.md) · [03 唤起与使用](./03_launch_and_use.md) · [04 命令速查](./04_shortcuts_and_commands.md) · **本篇**
 
@@ -96,7 +96,7 @@
 
 所有会话历史按项目路径的 hash 分组存储。每个 `.jsonl` 文件是一个完整的会话记录，包含所有对话内容、工具调用和 token 用量。
 
-通过 `mc --code -r` 或 `/resume` 可以从这里恢复历史会话。
+通过 `claude -r` 或 `/resume` 可以从这里恢复历史会话。
 
 #### `.credentials.json` — 认证凭据
 

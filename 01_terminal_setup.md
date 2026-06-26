@@ -1,4 +1,4 @@
-# 01 · 工欲善其事，必先利其器 — 终端环境配置
+# 01 · 打造你的 AI 编码终端 — Ghostty + Starship 配置指南
 
 > **系列索引**：[README](./README.md) · **本篇** · [02 安装 CC](./02_installation.md) · [03 唤起与使用](./03_launch_and_use.md) · [04 命令速查](./04_shortcuts_and_commands.md) · [05 目录结构](./05_directory_structure.md)
 
@@ -23,59 +23,18 @@
 
 ## 目录
 
-- [一键安装（推荐）](#一、一键安装推荐)
-- [手动配置](#二、手动配置说明)
-  - [安装 Ghostty](#1-安装-ghostty)
-  - [安装字体](#2-安装字体)
-  - [安装 Starship](#3-安装-starship)
-  - [Ghostty 配置文件](#4-ghostty-配置文件)
-  - [Starship 配置文件](#5-starship-配置文件)
-- [Ghostty 常用快捷键](#三、ghostty-常用快捷键)
-- [配置文件位置速查](#四、配置文件位置速查)
-- [其他终端推荐](#五、其他终端推荐)
+- [一、安装 Ghostty](#一安装-ghostty)
+- [二、安装字体](#二安装字体)
+- [三、安装 Starship](#三安装-starship)
+- [四、Ghostty 配置文件](#四ghostty-配置文件)
+- [五、Starship 配置文件](#五starship-配置文件)
+- [六、Ghostty 常用快捷键](#六ghostty-常用快捷键)
+- [七、配置文件位置速查](#七配置文件位置速查)
+- [八、其他终端推荐](#八其他终端推荐)
 
 ---
 
-## 一、一键安装（推荐）
-
-将以下命令粘贴到终端执行，脚本会自动完成所有安装和配置：
-
-```bash
-curl -fsSL https://msstest.sankuai.com/videotestbucket/setup-ghostty-new.sh | bash
-```
-
-或者下载后执行：
-
-```bash
-# 1. 下载脚本
-curl -O https://msstest.sankuai.com/videotestbucket/setup-ghostty-new.sh
-
-# 2. 添加执行权限
-chmod +x setup-ghostty-new.sh
-
-# 3. 执行安装
-./setup-ghostty-new.sh
-```
-
-脚本会依次完成：
-
-1. 检查并安装 Homebrew（如未安装）
-2. 检查并安装 Ghostty
-3. 安装 Maple Mono NF CN 字体
-4. 安装 Starship
-5. 写入 Ghostty 配置（Catppuccin Mocha 主题 + 分屏快捷键）
-6. 写入 Starship 配置（Catppuccin Mocha 风格提示符）
-7. 自动检测 Shell 并配置 Starship 初始化
-
-> ✅ **安全提示**：已有配置会自动备份为 `*.bak.<时间戳>`，不会覆盖丢失。
-
----
-
-## 二、手动配置说明
-
-如果你希望逐步了解每一步，或者需要定制某些选项，可以按下面的步骤手动操作。
-
-### 1. 安装 Ghostty
+## 一、安装 Ghostty
 
 ```bash
 brew install --cask ghostty
@@ -83,15 +42,24 @@ brew install --cask ghostty
 
 安装完成后在 Launchpad 或 Spotlight 中搜索 **Ghostty** 打开。
 
-### 2. 安装字体
+> 没有 Homebrew？先执行：
+> ```bash
+> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+> ```
+
+---
+
+## 二、安装字体
 
 ```bash
 brew install --cask font-maple-mono-nf-cn
 ```
 
-安装后需要在 Ghostty 配置文件中指定该字体（见第 4 步）。
+安装后需要在 Ghostty 配置文件中指定该字体（见第四步）。
 
-### 3. 安装 Starship
+---
+
+## 三、安装 Starship
 
 ```bash
 brew install starship
@@ -107,7 +75,9 @@ brew install starship
 
 执行 `exec $SHELL` 或重启终端使配置生效。
 
-### 4. Ghostty 配置文件
+---
+
+## 四、Ghostty 配置文件
 
 配置文件路径：`~/.config/ghostty/config`（不存在则新建）
 
@@ -140,13 +110,15 @@ window-padding-y = 8
 unfocused-split-opacity = 0.7
 ```
 
-> 💡 修改配置后按 `Cmd+Shift+,` 重载，无需重启 Ghostty。
+> 💡 修改配置后按 `Cmd+Shift+,` 热重载，无需重启 Ghostty。
 
-### 5. Starship 配置文件
+---
+
+## 五、Starship 配置文件
 
 配置文件路径：`~/.config/starship.toml`
 
-> ⚠️ **注意**：`format` 字段中的过渡字符必须是正确的 Nerd Font 字符。直接复制纯文本时字符可能丢失，导致提示符显示为独立色块而非连续胶囊条。建议通过脚本安装或直接复制下方配置文件。
+> ⚠️ **注意**：`format` 字段中的过渡字符必须是正确的 Nerd Font 字符。直接复制纯文本时字符可能丢失，导致提示符显示为独立色块而非连续胶囊条。建议完整复制下方配置后再按需修改。
 
 完整 `starship.toml` 配置（Catppuccin Mocha 风格连续胶囊提示符）：
 
@@ -273,14 +245,14 @@ crust     = "#11111b"
 
 ---
 
-## 三、Ghostty 常用快捷键
+## 六、Ghostty 常用快捷键
 
 | 快捷键 | 功能 |
 |--------|------|
 | `Cmd+Space` | 呼出 / 隐藏 Quick Terminal（全局，任意应用均可触发） |
 | `Cmd+D` | 向右分屏 |
 | `Cmd+Shift+Enter` | 当前分屏全屏 / 还原 |
-| `Cmd+Shift+,` | 重载配置文件（修改配置后无需重启） |
+| `Cmd+Shift+,` | 热重载配置文件（修改配置后无需重启） |
 | `Cmd+[` / `Cmd+]` | 切换分屏 |
 | `Cmd+T` | 新建标签页 |
 | `Cmd+W` | 关闭当前窗口 / 分屏 |
@@ -290,7 +262,7 @@ crust     = "#11111b"
 
 ---
 
-## 四、配置文件位置速查
+## 七、配置文件位置速查
 
 | 工具 | 配置文件路径 |
 |------|-------------|
@@ -302,7 +274,7 @@ crust     = "#11111b"
 
 ---
 
-## 五、其他终端推荐
+## 八、其他终端推荐
 
 除 Ghostty 外，以下终端也能很好地配合 Claude Code 使用：
 
