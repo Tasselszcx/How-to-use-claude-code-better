@@ -1,4 +1,4 @@
-# 🤖 How to Use Claude Code Better
+# 🤖 如何更高效的驾驭 Claude Code（经验分享）
 
 [![小红书](https://img.shields.io/badge/小红书-关注作者-FF2442?style=flat-square&logo=xiaohongshu&logoColor=white)](https://www.xiaohongshu.com/user/profile/66eaf504000000001d030537)
 
