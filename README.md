@@ -1,6 +1,6 @@
 # 🤖 如何更高效的驾驭 Claude Code（经验分享）
 
-作者：Tassels，美团 Longcat Agent Intern。 [![小红书](https://img.shields.io/badge/小红书-关注作者-FF2442?style=flat-square&logo=xiaohongshu&logoColor=white)](https://www.xiaohongshu.com/user/profile/66eaf504000000001d030537)
+作者：[Tassels](https://github.com/Tasselszcx)，美团 Longcat Agent Intern。 [![小红书](https://img.shields.io/badge/小红书-关注作者-FF2442?style=flat-square&logo=xiaohongshu&logoColor=white)](https://www.xiaohongshu.com/user/profile/66eaf504000000001d030537)
 
 > Claude Code 是 Anthropic 官方出品的命令行 AI 编程助手。这份指南不讲理论，只讲**在实际使用中真正有用的东西**。
 
