@@ -249,7 +249,7 @@ crust     = "#11111b"
 
 | 快捷键 | 功能 |
 |--------|------|
-| `Cmd+Space` | 呼出 / 隐藏 Quick Terminal（全局，任意应用均可触发） |
+| 自定义快捷键 | 呼出 / 隐藏 Quick Terminal（全局，需在配置中设置，示例用 `Cmd+Space`） |
 | `Cmd+D` | 向右分屏 |
 | `Cmd+Shift+Enter` | 当前分屏全屏 / 还原 |
 | `Cmd+Shift+,` | 热重载配置文件（修改配置后无需重启） |
@@ -258,7 +258,7 @@ crust     = "#11111b"
 | `Cmd+W` | 关闭当前窗口 / 分屏 |
 | `Cmd++` / `Cmd+-` | 字体放大 / 缩小 |
 
-> 🌟 **Quick Terminal** 是 Ghostty 的杀手级功能：在任何应用中按 `Cmd+Space` 即可从屏幕顶部滑出终端，再按一次收起，完全不打断当前工作流。
+> 🌟 **Quick Terminal** 是 Ghostty 的杀手级功能：在任意应用中按呼出快捷键即可从屏幕顶部滑出终端，再按一次收起，完全不打断当前工作流。快捷键需在 Ghostty 配置中设置（示例用 `Cmd+Space`，注意与 macOS Spotlight 冲突时需二选一，建议改为 `Cmd+\`` 或其他未占用的组合）。
 
 ---
 

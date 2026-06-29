@@ -97,10 +97,10 @@ Claude Code 面对模糊需求时，有两种策略：
 
 ### 1. 在 plan 模式下配合使用
 
-`plan` 模式（按 `Tab` 切换到 plan）下，Claude Code 只规划不执行。配合 AskUserQuestion，可以在执行前完整对齐方案：
+`plan` 模式（按 `Tab` 切换到 plan，或启动时加 `--permission-mode plan`）下，Claude Code 只规划不执行。配合 AskUserQuestion，可以在执行前完整对齐方案：
 
 ```
-/permission-mode plan
+# 先按 Tab 把权限模式切换到 plan，再发消息
 帮我规划一下登录功能的改造，有不确定的地方先问我
 ```
 

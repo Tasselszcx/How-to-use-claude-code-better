@@ -115,7 +115,7 @@ Hooks 配置在 `settings.json` 里，基本格式：
 }
 ```
 
-Claude Code 会看到 lint 输出，如果有问题会自动修复。
+Claude Code 会读取 lint 输出，如果发现问题会尝试自动修复（是否修复取决于问题类型和上下文）。
 
 ### 3. 拦截危险的 shell 命令
 
@@ -210,21 +210,25 @@ exit 0
 
 ## 四、Hook 输出控制
 
-Hook 脚本通过退出码和 JSON 输出来控制行为：
+Hook 脚本有两种控制方式，可以结合使用：
+
+**方式一：通过退出码**
 
 | 退出码 | 含义 |
 |--------|------|
 | `0` | 正常，继续执行 |
-| `2` | 阻止操作，stdout 内容作为反馈给 Claude Code |
+| `2` | 阻止操作，并将 stdout 内容作为原因反馈给 Claude Code |
 | 其他 | 非阻塞错误，继续执行但显示错误信息 |
 
-阻止操作的示例（在 PreToolUse 中）：
+**方式二：通过 JSON 输出（推荐，更明确）**
+
+脚本退出码为 `0`，但在 stdout 输出包含 `decision: block` 的 JSON，Claude Code 会识别并阻止操作：
 
 ```bash
 #!/bin/bash
 # 阻止操作，并告诉 Claude Code 原因
 echo '{"decision":"block","reason":"此操作被项目规范禁止，请先和我确认"}'
-exit 0  # 注意：用 exit 0，通过 JSON 的 decision 字段控制
+exit 0
 ```
 
 ---

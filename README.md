@@ -28,7 +28,7 @@
 
 - [ ] 配好终端环境（Ghostty + Starship + Catppuccin）→ [01 终端配置](./01_terminal_setup.md)
 - [ ] 安装 Claude Code，配好 `cc` / `ccb` / `cca` 三个 alias → [02 安装](./02_installation.md)
-- [ ] 成功启动，向 Claude Code 发出第一条消息
+- [ ] 成功启动，向 Claude Code 发出第一条消息 → [02 安装](./02_installation.md)
 
 完成 Stage 1 的标志：在项目目录执行 `cc`，能正常对话。
 
@@ -36,17 +36,17 @@
 
 ### Stage 2：掌握基础操作
 
-- [ ] 理解「在哪个目录启动 = 告诉它在哪个项目工作」这个核心理念
+- [ ] 理解「在哪个目录启动 = 告诉它在哪个项目工作」这个核心理念 → [03 唤起与使用](./03_launch_and_use.md)
 - [ ] 学会 4 种唤起方式，找到适合自己的工作流 → [03 唤起与使用](./03_launch_and_use.md)
-- [ ] 掌握 `@` 引用文件、`#` 添加记忆、`!` 执行命令 三个核心手势
-- [ ] 理解权限模式，知道什么时候用 `plan` / `bypassPermissions`
+- [ ] 掌握 `@` 引用文件、`#` 添加记忆、`!` 执行命令 三个核心手势 → [04 命令速查](./04_shortcuts_and_commands.md)
+- [ ] 理解权限模式，知道什么时候用 `plan` / `bypassPermissions` → [04 命令速查](./04_shortcuts_and_commands.md)
 - [ ] 读懂目录结构，知道配置和会话历史放在哪 → [04 命令速查](./04_shortcuts_and_commands.md) · [05 目录结构](./05_directory_structure.md)
 
 完成 Stage 2 的标志：能用 Claude Code 完成一个真实的小任务，不需要手动粘贴代码。
 
 ---
 
-### Stage 3：提效配置（差距在这里拉开）
+### Stage 3：提效配置（这一步最容易拉开差距）
 
 - [ ] 为当前项目写好第一个 `CLAUDE.md`，消灭重复说明 → [08 CLAUDE.md 实战](./08_claude_md_in_practice.md)
 - [ ] 配好 `settings.json`，减少权限弹窗，锁定回复语言 → [06 配置全解](./06_configuration.md)
