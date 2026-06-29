@@ -1,5 +1,7 @@
 # 🤖 如何更高效的驾驭 Claude Code（经验分享）
 
+> 作者：美团 Longcat Agent Intern，专注 AI 编码工具的实战探索与经验沉淀。
+
 [![小红书](https://img.shields.io/badge/小红书-关注作者-FF2442?style=flat-square&logo=xiaohongshu&logoColor=white)](https://www.xiaohongshu.com/user/profile/66eaf504000000001d030537)
 
 > 一份面向中文开发者的 Claude Code 实战系列，从终端配置到多 Agent 并行，覆盖入门到进阶的完整路径。
